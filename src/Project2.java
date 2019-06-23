@@ -60,7 +60,7 @@ public class Project2 {
 
             usrInput = usrScanner.next();//gonna get usrInput at the end so it checks at the bottom instead of running down
         }while(!usrInput.equals("0"));*/
-        System.out.print((Arrays.toString(decodeRle(new byte[] {3,15,6,4}))));
+        System.out.print((Arrays.toString(stringToData("3f64"))));
 
 
     }
@@ -185,7 +185,20 @@ public class Project2 {
 
 
     }
-    //public static byte[] stringToData(String dataString){}
+    public static byte[] stringToData(String dataString){
+
+        dataString = dataString.toLowerCase();
+
+        byte[] stringingData = new byte[dataString.length()];
+        char[] arrayString = dataString.toCharArray();
+
+        for (int i = 0; i < dataString.length(); i ++){
+            stringingData[i] = (byte)Character.getNumericValue(arrayString[i]);
+
+        }
+
+        return stringingData;
+    }
     //public static String toRleString(byte[] rleData){}
     //public static byte[] stringToRle(String rleString){}
 
